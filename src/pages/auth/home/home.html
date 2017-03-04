@@ -7,7 +7,6 @@
 </ion-header>
 
 <ion-content padding>
-
   <form (ngSubmit)="login()" #loginForm="ngForm">
     <ion-list>
       <ion-item>
@@ -15,18 +14,18 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" placeholder="Senha" [(ngModel)]="form.password" name="password"></ion-input>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="form.password" name="password"></ion-input>
       </ion-item>
     </ion-list>
 
     <ion-buttons end>
       <button ion-button block [disabled]="!loginForm.form.valid">Log In</button>
       <button ion-button block (click)="openSignUpPage()">Sign Up</button>
+     <!-- FUTURE FEATURE <button ion-button block (click)="loginUserWithFacebook()"><ion-icon name="logo-facebook"></ion-icon> Log In with Facebook</button> -->
     </ion-buttons>
 
     <div padding class="error" *ngIf="error">
       <p>{{error}}</p>
     </div>
   </form>
-
 </ion-content>

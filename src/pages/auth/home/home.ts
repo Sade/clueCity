@@ -4,6 +4,7 @@ import {Component} from '@angular/core';
 import {AuthProvider} from '../../../providers/auth';
 
 import {SignUpPage} from "../sign-up/sign-up";
+import {HomePage} from "../../home/home";
 
 @Component({
   templateUrl: 'home.html',
@@ -41,6 +42,14 @@ export class AuthPage {
         loading.dismiss();
         this.error = err;
       }, 1000);
+    });
+  }
+
+  loginUserWithFacebook() {
+    this.auth.loginWithFacebook().subscribe(data => {
+      this.navCtrl.setRoot(HomePage);
+    }, err => {
+      this.error = err;
     });
   }
 }
